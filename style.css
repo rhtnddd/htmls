@@ -1,0 +1,47 @@
+.carousel {
+  width: 150px;
+  height: 300px;
+  overflow: hidden;
+  border: 2px solid #333;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  margin: auto;
+}
+.carousel1{
+  display: none;
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  border: 2px solid #333;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  margin: auto;
+}
+.nonono{
+  display: none;
+}
+.track {
+  display: flex;
+}
+.track1 {
+  display: flex;
+}
+.slide {
+  width: 150px;
+  height: 300px;
+  object-fit: cover;
+  background-size: 100% 100%;
+}
+.slide1{
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  background-size: 100% 100%;
+}
+.button{
+  text-align: center;
+}
+.button1{
+  display: none;
+  text-align: center;
+}
