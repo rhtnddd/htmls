@@ -1,0 +1,25 @@
+.carousel {
+  width: 150px;
+  height: 300px;
+  overflow: hidden;
+  margin-bottom: 15px;
+  margin: auto;
+}
+.track {
+  display: flex;
+}
+.slide {
+  width: 150px;
+  height: 300px;
+  object-fit: cover;
+  background-size: 100% 100%;
+}
+.hrs{
+    height: 30px;
+    width: 100%;
+    background-color: green;
+}
+.divsize{
+    height: 480px;
+    background-color: peru;
+}
