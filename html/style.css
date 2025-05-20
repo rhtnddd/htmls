@@ -1,0 +1,125 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+.carousel {
+  width: 150px;
+  height: 300px;
+  overflow: hidden;
+  border: 2px solid #333;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  margin: auto;
+}
+.carousel1{
+  display: none;
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  border: 2px solid #333;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  margin: auto;
+}
+.carousel2{
+  display: none;
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  border: 2px solid #333;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  margin: auto;
+}
+.nonono{
+  display: none;
+}
+.track {
+  display: flex;
+}
+.track1 {
+  display: flex;
+}
+.track2 {
+  display: flex;
+}
+.slide {
+  width: 150px;
+  height: 300px;
+  object-fit: cover;
+  background-size: 100% 100%;
+}
+.slide1{
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  background-size: 100% 100%;
+}
+.slide2{
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  background-size: 100% 100%;
+}
+.button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+.button2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+.buttoncolor{
+  width: 100%;
+  height: 50px;
+  background-color: #81c784;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding-left: 20px;
+}
+.buttoncolor h1 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: white;
+  flex-shrink: 0;
+}
+.btn {
+  box-sizing: border-box;
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid #388e3c;
+  border-radius: 0.6em;
+  color: #388e3c;
+  cursor: pointer;
+  display: flex;
+  align-self: center;
+  font-size: 0.8rem;
+  font-weight: 400;
+  line-height: 1;
+  margin: 20px;
+  padding: 0.6em 1.6em;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+  &:hover,
+  &:focus {
+    color: #fff;
+    outline: 0;
+  }
+  &:hover {
+    box-shadow: 0 0 40px 40px #388e3c inset;
+}
+}
