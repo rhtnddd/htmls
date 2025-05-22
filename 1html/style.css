@@ -18,8 +18,19 @@
     height: 30px;
     width: 100%;
     background-color: green;
+
 }
 .divsize{
-    height: 480px;
+    height: 490px;
     background-color: peru;
+}
+.ex{
+  margin-top: 50px;
+  margin-left: 135px;
+}
+.hh1{
+  margin-top: 0px;
+  padding-top: 50px;
+  margin-left: 100px;
+  color: black;
 }
