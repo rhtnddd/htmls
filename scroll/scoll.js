@@ -39,7 +39,7 @@ function shootBullet() {
             {
                 clearInterval(interval);
                 bullet.remove();
-                currentWidth -= 100;
+                currentWidth -= 0.2;
                 pusent.textContent = "보스 hp:"+currentWidth.toFixed(1);
                 if(currentWidth<=0)
                 {
