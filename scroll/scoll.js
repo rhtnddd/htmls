@@ -10,7 +10,7 @@ let currentWidth = parseFloat(progressBar.style.width) || 100;
 let hp = document.getElementById("hp");
 let pusent= document.getElementById("pusent");
 pusent.textContent = "보스 hp"+currentWidth;
-hp.textContent = "hp:"+heart;
+hp.textContent = "hp:"+heart;//다만들었다 하
 document.addEventListener('mousemove', (e) => {
     ship.style.left = e.pageX + 'px';
     ship.style.top = e.pageY + 'px';
@@ -39,12 +39,18 @@ function shootBullet() {
             {
                 clearInterval(interval);
                 bullet.remove();
-                currentWidth -= 0.2;
+                currentWidth -= 100;
                 pusent.textContent = "보스 hp:"+currentWidth.toFixed(1);
                 if(currentWidth<=0)
                 {
                     gameArea.style.display = 'none';
-                    document.querySelector('.win').style.display = 'block';
+                    if(heart==10)
+                    {
+                      document.querySelector('.perpectwin').style.display = 'block';
+                    }
+                    else{
+                      document.querySelector('.win').style.display = 'block';
+                    }
                 }
                 progressBar.style.width = currentWidth + '%';
             }

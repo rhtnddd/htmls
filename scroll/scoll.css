@@ -85,3 +85,9 @@ body {
   margin-left: 0%;
   color: white;
 }
+.perpectwin{
+  display: none;
+  text-align: center;
+  margin-top: 500px;
+  color: white;
+}
