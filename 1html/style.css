@@ -2,7 +2,17 @@
     margin: 0;
     overflow: hidden;
   }
+  *{
+    font-family: 'PFStardust';
+  }
+  @font-face {
+    font-family: 'PFStardust';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/PFStardust.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
   .carousel {
+    z-index: 20;
     position: relative;
     left: 44%;
     width: 150px;
@@ -18,13 +28,20 @@
     object-fit: cover;
     background-size: 100% 100%;
   }
+  .moneymoney{
+    width: 500px;
+    margin-top: -30px;
+    margin-left: 20px;
+  }
   .hrs{
+    z-index: 10;
     height: 30px;
     width: 100%;
     background-color: green;
 
   }
   .divsize{
+    z-index: 10;
     height: 500px;
     background-color: peru; 
   } 
@@ -35,9 +52,62 @@
   .pet{
     position: relative;
     top:-100px;
-    left: 40%;
+    left: 42%;
+  }
+  .casino{
+    position: relative;
+    top:-205px;
+    left: 80%;
+  }
+  .back{
+    display: flex;
+    position: relative;
+    top: 600px;
+    left: 40px;
+    display: none;
+  }
+  .petimg{
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 500px;
+    width: 100px;
+    height: 100px;
+  }
+  .petimg1{
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 600px;
+    width: 100px;
+    height: 100px;
+  }
+  .petimg2{
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 700px;
+    width: 100px;
+    height: 100px;
+  }
+  .petimg3{
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 800px;
+    width: 100px;
+    height: 100px;
+  }
+  .petimg4{
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 900px;
+    width: 100px;
+    height: 100px;
   }
   .button {
+    z-index: 9;
     margin-top: 50px;
     align-items: center;
     appearance: none;
@@ -85,8 +155,9 @@
     transform: translateY(2px);
   }
   .buttonbgm {
-    position: relative; top: -70px;
-    position: relative; left: 1360px;
+    position: absolute;
+    top:-80px;
+    left: 93%;
     align-items: center;
     appearance: none;
     background-color: #EEF2FF;
@@ -176,6 +247,100 @@
   }
 
   .petbutton:active {
+    box-shadow: #D6D6E7 0 3px 7px inset;
+    transform: translateY(2px);
+  }
+  .casinobutton {
+    margin-top: 50px;
+    align-items: center;
+    appearance: none;
+    background-color: #EEF2FF;
+    border-radius: 8px;
+    border-width: 2px;
+    border-color: #000000;
+    box-shadow: rgba(83, 109, 254, 0.2) 0 2px 4px, rgba(83, 109, 254, 0.15) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: #000000;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: "JetBrains Mono", monospace;
+    height: 56px;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding-left: 24px;
+    padding-right: 24px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: box-shadow 0.15s, transform 0.15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow, transform;
+    font-size: 20px;
+  }
+
+  .casinobutton:focus {
+    outline: none;
+    box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(83, 109, 254, 0.4) 0 2px 4px, rgba(83, 109, 254, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  }
+
+  .casinobutton:hover {
+    box-shadow: rgba(83, 109, 254, 0.3) 0 4px 8px, rgba(83, 109, 254, 0.2) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    transform: translateY(-2px);
+  }
+
+  .casinobutton:active {
+    box-shadow: #D6D6E7 0 3px 7px inset;
+    transform: translateY(2px);
+  }
+  .backbutton {
+    margin-top: 50px;
+    align-items: center;
+    appearance: none;
+    background-color: #EEF2FF;
+    border-radius: 8px;
+    border-width: 2px;
+    border-color: #000000;
+    box-shadow: rgba(83, 109, 254, 0.2) 0 2px 4px, rgba(83, 109, 254, 0.15) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: #000000;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: "JetBrains Mono", monospace;
+    height: 56px;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding-left: 24px;
+    padding-right: 24px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: box-shadow 0.15s, transform 0.15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow, transform;
+    font-size: 20px;
+  }
+
+  .backbutton:focus {
+    outline: none;
+    box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(83, 109, 254, 0.4) 0 2px 4px, rgba(83, 109, 254, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  }
+
+  .backbutton:hover {
+    box-shadow: rgba(83, 109, 254, 0.3) 0 4px 8px, rgba(83, 109, 254, 0.2) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    transform: translateY(-2px);
+  }
+
+  .backbutton:active {
     box-shadow: #D6D6E7 0 3px 7px inset;
     transform: translateY(2px);
   }
