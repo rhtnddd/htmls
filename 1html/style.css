@@ -59,6 +59,18 @@
     top:-205px;
     left: 80%;
   }
+  .canvas1{
+    display: none;
+    position: absolute;
+    top:30px;
+    left: 32%;
+  }
+  .spin1{
+    display: none;
+    position: absolute;
+    top:600px;
+    left: 46%;
+  }
   .back{
     display: flex;
     position: relative;

@@ -8,15 +8,32 @@ const petspone = document.getElementById('petspone');
 const casinomoney = document.getElementById('casinomoney');
 const casinoclick = document.getElementById('casinoclick');
 const backback = document.getElementById('backback');
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+const spinBth = document.getElementById("spin");
+canvas.width = 500;
+canvas.height = 500;
+const testData = [
+    { id: 0, text: "0배", background: "#ab6c66" },
+    { id: 1, text: "2배", background: "#86bc85" },
+    { id: 2, text: "3배", background: "#a5adce" },
+];
+let spinning = false;
+let selectedSegment = null;
+let rotationCount = 20;
+let totalRotation = 0;
+let startTimestamp = null;
+let duration = 5000;
+let segments = [...testData];
 let currentIndex = 0;
-let money=10000000000000;
+let money=1000000000;
 let moneyup=1;
 let okclick=0;
 let casino=0;
 let petclick=0;
 let upgrade=500;
 let petupgrade=2000;
-//오디오
+
 let audio = new Audio('coin8-103286.mp3');
 let audio1 = new Audio('exploration-chiptune-rpg-adventure-theme-336428.mp3');
 audio.volume = 0.3;
@@ -27,20 +44,117 @@ let petname = document.getElementById("petname");
 upmoney.textContent = "다이소 도끼:"+upgrade+"골드";
 myHeading.textContent = "머니머니머니:"+money;
 petname.textContent = "강아지(초당골드:25):"+petupgrade+"골드";
+function drawCircle() {
+    ctx.beginPath();
+    ctx.arc(250, 250, 240, 0, Math.PI * 2);
+    ctx.closePath();
+    
+    ctx.fillStyle = "#63FF84";
+    ctx.fill();
+    ctx.stroke();
+}
+drawCircle()
+function drawPointer() {
+    ctx.beginPath();
+    ctx.moveTo(250, 20);
+    ctx.lineTo(243, 6);
+    ctx.lineTo(257, 6);
+    ctx.closePath();
 
+    ctx.fillStyle = "#fff";
+    ctx.fill();
+    ctx.stroke();
+}
+drawPointer()
+function drawSegments(angle) {
+    const addAngle = (Math.PI * 2) / segments.length;
+    ctx.clearRect(0, 0, 500, 500);
+
+    segments.forEach((segment, index) => {
+        ctx.beginPath();
+        ctx.moveTo(250, 250);
+        ctx.arc(250, 250, 240 - 1, angle, angle + addAngle);
+        ctx.closePath();
+
+        ctx.fillStyle = segment.background;
+        ctx.fill();
+        ctx.lineWidth = 1;
+        ctx.stroke();
+        ctx.save();
+
+        ctx.translate(250, 250);
+        ctx.rotate(angle + addAngle / 2);
+
+        ctx.textAlign = "center";
+        ctx.font = "bold 28px sans-serif";
+        ctx.fillStyle = "black";
+        ctx.fillText(segment.text, 240 / 2, 0);
+
+        ctx.restore();
+        angle += addAngle;
+    });
+
+    drawPointer();
+}
+drawSegments(0);
+function easeInOutQuad(x) {
+  return x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
+}
+function animate(timestamp) {
+    if (!spinning) {
+        spinning = true;
+        startTimestamp = timestamp;
+    }
+
+    let elapsed = timestamp - startTimestamp;
+    let progress = easeInOutQuad(Math.min(elapsed / duration, 1));
+    let angle = totalRotation * progress;
+
+    drawSegments(angle);
+    myHeading.textContent = "머니머니머니:" + money;
+    if (progress < 1) {
+        requestAnimationFrame(animate);
+    } else {
+        if (selectedSegment === 0) {
+          money *= 0;
+          myHeading.textContent = "머니머니머니:"+money;
+        } else if (selectedSegment === 1) {
+          money *= 2;
+          myHeading.textContent = "머니머니머니:"+money;
+        } else if (selectedSegment === 2) {
+          money *= 3;
+          myHeading.textContent = "머니머니머니:"+money;
+        }
+        spinning = false;
+    }
+}
 function moveSlide() {
   track.style.transform = `translateX(-${150 * currentIndex}px)`;
 }
-
+spinBth.onclick=()=>{
+  if (spinning){
+    return;
+  }
+  selectedSegment = Math.floor(Math.random() * segments.length);
+  const angle = (Math.PI * 2) / segments.length;
+  const randomAngle = Math.random() * -angle;
+  const correctionAngle = Math.PI * 1.5 - angle * selectedSegment;
+  totalRotation = Math.PI * 2 * rotationCount + correctionAngle + randomAngle;
+  requestAnimationFrame(animate);
+}
 casinomoney.onclick=()=>{
   casino=1;
   casinoclick.style.display = 'none';
   backback.style.display = 'flex';
+  canvas.style.display="block";
+  spinBth.style.display="flex";
 }
 backback.onclick=()=>{
   casino=0;
   casinoclick.style.display = 'block';
   backback.style.display = 'none';
+  canvas.style.display="none";
+  spinBth.style.display="none";
 }
 bgm.onclick=()=>{
   bgm.style.visibility = 'hidden';
