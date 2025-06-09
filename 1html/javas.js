@@ -11,6 +11,10 @@ const backback = document.getElementById('backback');
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 const spinBth = document.getElementById("spin");
+const cave = document.getElementById("cave");
+const cavespot=document.getElementById("body");
+const mineral = document.getElementById("mineral");
+const dia = document.getElementById("dia");
 canvas.width = 500;
 canvas.height = 500;
 const testData = [
@@ -18,6 +22,9 @@ const testData = [
     { id: 1, text: "2배", background: "#86bc85" },
     { id: 2, text: "3배", background: "#a5adce" },
 ];
+
+
+let diam = 1;
 let spinning = false;
 let selectedSegment = null;
 let rotationCount = 20;
@@ -26,17 +33,19 @@ let startTimestamp = null;
 let duration = 5000;
 let segments = [...testData];
 let currentIndex = 0;
-let money=1000000000;
+let money=0;
 let moneyup=1;
 let okclick=0;
 let casino=0;
 let petclick=0;
 let upgrade=500;
 let petupgrade=2000;
-
 let audio = new Audio('coin8-103286.mp3');
 let audio1 = new Audio('exploration-chiptune-rpg-adventure-theme-336428.mp3');
-audio.volume = 0.3;
+audio.volume = 0.2;
+audio1.volume= 0.7;
+
+
 
 let myHeading = document.getElementById("myHeading");
 let upmoney = document.getElementById("upmoney");
@@ -44,6 +53,12 @@ let petname = document.getElementById("petname");
 upmoney.textContent = "다이소 도끼:"+upgrade+"골드";
 myHeading.textContent = "머니머니머니:"+money;
 petname.textContent = "강아지(초당골드:25):"+petupgrade+"골드";
+
+
+document.addEventListener('mousemove', (e) => {
+    dia.style.left = e.pageX + 'px';
+    dia.style.top = e.pageY + 'px';
+});
 function drawCircle() {
     ctx.beginPath();
     ctx.arc(250, 250, 240, 0, Math.PI * 2);
@@ -128,9 +143,15 @@ function animate(timestamp) {
         spinning = false;
     }
 }
+
+
+
 function moveSlide() {
   track.style.transform = `translateX(-${150 * currentIndex}px)`;
 }
+
+
+
 spinBth.onclick=()=>{
   if (spinning){
     return;
@@ -142,6 +163,9 @@ spinBth.onclick=()=>{
   totalRotation = Math.PI * 2 * rotationCount + correctionAngle + randomAngle;
   requestAnimationFrame(animate);
 }
+
+
+
 casinomoney.onclick=()=>{
   casino=1;
   casinoclick.style.display = 'none';
@@ -154,13 +178,44 @@ backback.onclick=()=>{
   casinoclick.style.display = 'block';
   backback.style.display = 'none';
   canvas.style.display="none";
+  dia.style.display="none";
+  myHeading.style.color="black";
+  cavespot.style.backgroundImage = "url('png/sky.png')";
+  mineral.style.display = "none";
   spinBth.style.display="none";
+}
+cave.onclick=()=>{
+  casino=1;
+  casinoclick.style.display = 'none';
+  mineral.style.display="block";
+  cavespot.style.backgroundImage = "url('png/cavespot.png')";
+  myHeading.style.color="white";
+  dia.style.display="block";
+  backback.style.display = 'flex';
 }
 bgm.onclick=()=>{
   bgm.style.visibility = 'hidden';
   audio1.loop=true;
   audio1.play();
 }
+dia.onclick=()=>{
+  if(money<3000)
+  {
+    alert('3000원 벌고 오세욤');
+  }
+  if(10000>money>=3000)
+  {
+    let mineral1=Math.floor(Math.random() * 30);
+    money+=mineral1;
+    myHeading.textContent = "머니머니머니:" + money;
+  }
+  if(money>=10000)
+  {
+    let mineral1=Math.floor(Math.random() * 100);
+    money+=mineral1;
+    myHeading.textContent = "머니머니머니:" + money;
+  }
+  }
 up.onclick=()=>{
   if(money>=upgrade)
   {

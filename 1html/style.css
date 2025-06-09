@@ -1,4 +1,7 @@
   body{
+    background-image:url('png/sky.png');
+    background-size:contain;
+    height: 862px;
     margin: 0;
     overflow: hidden;
   }
@@ -11,9 +14,29 @@
     font-weight: normal;
     font-style: normal;
   }
+  .mineral{
+    display: none;
+    margin-left: 30%;
+    margin-top: 100px;
+  }
+  .dia{
+    display: none;
+    position: absolute;
+    height: 100px;
+    width: 100px;
+  }
+  .cave-img{
+    background:url('png/cave.png') no-repeat;
+    width:50px;
+    height: 50px;
+    position:absolute;
+    top: 100px;
+    left: 95%;
+  }
   .carousel {
     z-index: 20;
     position: relative;
+    top:200px;
     left: 44%;
     width: 150px;
     height: 300px;
@@ -37,26 +60,25 @@
     z-index: 10;
     height: 30px;
     width: 100%;
-    background-color: green;
 
   }
   .divsize{
     z-index: 10;
-    height: 500px;
-    background-color: peru; 
+    height: 500px; 
   } 
   .ex{
     position: relative;
+    top:195px;
     left: 73px;
   }
   .pet{
     position: relative;
-    top:-100px;
+    top:90px;
     left: 42%;
   }
   .casino{
     position: relative;
-    top:-205px;
+    top:-20px;
     left: 80%;
   }
   .canvas1{
@@ -73,7 +95,7 @@
   }
   .back{
     display: flex;
-    position: relative;
+    position: absolute;
     top: 600px;
     left: 40px;
     display: none;

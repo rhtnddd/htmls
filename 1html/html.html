@@ -6,8 +6,10 @@
         <title>나무RPG</title>
         <link rel="stylesheet" href="style.css" >
     </head>
-    <body>
+    <body id="body">
         <h1 id="myHeading" class="moneymoney"></h1> 
+        <div><img src="png/mineral.png" class="mineral" id="mineral"></div>
+        <img src="png/dia.png" class="dia" id="dia">
         <div id="casinoclick">
             <button class="buttonbgm" id="bgm"><p>bgm</p></button>
             <img src = "png/image-removebg-preview (20).png" class="petimg">
@@ -38,14 +40,12 @@
                     <img src = "png/m.png" class="slide"/>
                     <img src = "png/m1.png" class="slide"/>
                 </div>
-            </div>
-            <div class="hrs">
-                <hr> 
-            </div>
+            </div>  
             <div class="divsize">
                 <div class="ex" id="up"><button class="button" role="button"><div id="upmoney"></div></button></div>
                 <div class="pet" id="petspone"><button class="petbutton" role="petbutton"><div id="petname"></div></button></div>
                 <div class="casino" id="casinomoney"><button class="casinobutton" role="casinobutton"><p>도박장</p></button></div>
+                <input type="button" class="cave-img" id="cave" onclick="alert('동굴에 진입했습니다.')">
             </div>
         </div>
         <div class="back" id="backback"><button class="backbutton" role="backbutton"><p>뒤로가기</p></button></div>
