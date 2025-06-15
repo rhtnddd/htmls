@@ -68,14 +68,25 @@ document.getElementById('add-product').addEventListener('click', () => {
     const titleInput = document.getElementById('new-title');
     const priceInput = document.getElementById('new-price');
 
+    const newTitle = titleInput.value.trim();
+    const newPrice = parseInt(priceInput.value);
     // 배열에 추가
-    if(titleInput!=='' && priceInput !=='')
+    if(newTitle === '')
     {
-        const newTitle = titleInput.value.trim();
-        const newPrice = parseInt(priceInput.value);
-        products.push({ title: newTitle, price: newPrice });
-        renderProducts(products);
-        titleInput.value = '';
-        priceInput.value = '';
+      alert('상품명을 입력해주세요.');
+    }
+    else if(newPrice === '')
+    {
+      alert('가격을 입력해주세요.');
+    }
+    else
+    {
+      console.log('if문 통과');
+      const newTitle = titleInput.value.trim();
+      const newPrice = parseInt(priceInput.value);
+      products.push({ title: newTitle, price: newPrice });
+      renderProducts(products);
+      titleInput.value = '';
+      priceInput.value = '';
     }
 });
