@@ -44,6 +44,7 @@ button:hover {
   border: 1px solid #ddd;
   padding: 10px;
   border-radius: 8px;
+  overflow: hidden;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.05);
   background-color: #fff;
 }
