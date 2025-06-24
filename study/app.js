@@ -102,11 +102,25 @@ document.getElementById('add-product').addEventListener('click', () => {
     }
     else
     {
-      console.log('if문 통과');
-      products.push({ title: newTitle, price: newPrice });
-      renderProducts(products);
-      titleInput.value = '';
-      priceInput.value = '';
+      if(products.some(item => item.title === newTitle))
+      {
+          const target = products.find(item => item.title === newTitle);
+          if (target) {
+            target.price = Number(newPrice);
+            renderProducts(products);
+          } else {
+            products.push({ title: newTitle, price: Number(newPrice) });
+            renderProducts(products);
+          }
+      }
+      else
+      {
+        console.log('if문 통과');
+        products.push({ title: newTitle, price: newPrice });
+        renderProducts(products);
+        titleInput.value = '';
+        priceInput.value = '';
+      }
     }
 });
 const input = document.getElementById('new-price');
