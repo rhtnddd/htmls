@@ -1,0 +1,43 @@
+body{
+    overflow: hidden;
+}
+.cover{
+    width: 100%;
+    height: 100%;
+}
+.border {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius:5%;
+  width: 500px;
+  height: 250px;
+  margin-top: 500px;
+  margin-left: 800px;
+}
+.miniborder {
+  position: absolute;
+  background-color: rgba(179, 179, 179, 0.394);
+  border-radius:10%;
+  width: 300px;
+  height: 70px;
+  margin-top: 520px;
+  margin-left: 850px;
+}
+.start{
+    color: white;
+    position: absolute;
+    margin-top: 520px;
+    margin-left: 860px;
+}
+.continue{
+    color: white;
+    position: absolute;
+    margin-top: 590px;
+    margin-left: 860px;
+}
+.end{
+    color: white;
+    position: absolute;
+    margin-top: 660px;
+    margin-left: 860px;
+}
